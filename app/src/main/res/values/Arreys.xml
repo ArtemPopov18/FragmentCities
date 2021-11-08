@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="cities">
-        <item>Москва</item>
-        <item>Санкт-Петербург</item>
-        <item>Екатеринбург</item>
-        <item>Новосибирск</item>
-        <item>Самара-ГОРОДОК!!!</item>
+    <string-array name="note_title">
+        <item>Заметка 1</item>
+        <item>Заметка 2</item>
+        <item>Заметка 3</item>
+        <item>Заметка 4</item>
+        <item>Заметка 5</item>
     </string-array>
     
-    <integer-array name="coat_of_arms_imgs">
-        <item>@drawable/mosk</item>
-        <item>@drawable/pit</item>
-        <item>@drawable/ekat</item>
-        <item>@drawable/sib</item>
-        <item>@drawable/sram</item>
-    </integer-array>
+    <string-array name="note_text">
+        <item>Текст заметки 1</item>
+        <item>Текст заметки 2</item>
+        <item>Текст заметки 3</item>
+        <item>Текст заметки 4</item>
+        <item>Текст заметки 5</item>
+    </string-array>
+
+    <string-array name="note_date">
+        <item>Дата 1</item>
+        <item>Дата 2</item>
+        <item>Дата 3</item>
+        <item>Дата 4</item>
+        <item>Дата 5</item>
+    </string-array>
+
 </resources>

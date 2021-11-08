@@ -1,11 +1,10 @@
 package com.popov.fragment;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -38,9 +37,12 @@ public class CoatOfArmsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_coat_of_arms, container, false);
-        ImageView imageView = view.findViewById(R.id.coat_of_arms);
-        TypedArray images = (getResources().obtainTypedArray(R.array.coat_of_arms_imgs));
-        imageView.setImageResource(images.getResourceId(index, -1));
+        TextView textView = view.findViewById(R.id.coat_of_arms);
+        TextView noteDateView = view.findViewById(R.id.note_date);
+        String[] text = getResources().getStringArray(R.array.note_text);
+        String[] date = getResources().getStringArray(R.array.note_date);
+        textView.setText(text[index]);
+        noteDateView.setText(date[index]);
         return view;
     }
 }

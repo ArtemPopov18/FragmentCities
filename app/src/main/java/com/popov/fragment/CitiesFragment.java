@@ -9,19 +9,34 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 
 public class CitiesFragment extends Fragment {
 
     private boolean isLandscape;
+    int currentPosition = 0;
+    String CURRENT_POSITION = "pos";
+
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(CURRENT_POSITION, currentPosition);
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+
+        if(savedInstanceState != null){
+            currentPosition = savedInstanceState.getInt(CURRENT_POSITION, 0);
+        }
+
         if(isLandscape){
-            showLandCoatOfArms(0);
+            showLandCoatOfArms(currentPosition);
         }
     }
 
@@ -38,18 +53,19 @@ public class CitiesFragment extends Fragment {
     }
 
     private void createTextViewList(LinearLayout view) {
-        String[] cities = getResources().getStringArray(R.array.cities);
-        for(int i = 0; i < cities.length; i++){
+        String[] noteTitle = getResources().getStringArray(R.array.note_title);
+        for(int i = 0; i < noteTitle.length; i++){
             TextView textView = new TextView(getContext());
-            textView.setText(cities[i]);
+            textView.setText(noteTitle[i]);
             final int finalI = i;
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    currentPosition = finalI;
                     if(isLandscape){
-                        showLandCoatOfArms(finalI);
+                        showLandCoatOfArms(currentPosition);
                     }else
-                        showPortCoatOfArms(finalI);
+                        showPortCoatOfArms(currentPosition);
                 }
             });
             textView.setTextSize(35);
